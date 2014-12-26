@@ -1,0 +1,16 @@
+<IfModule mod_ssl.c>
+  <VirtualHost *:443>
+    DocumentRoot /phpmoadmin/data
+
+    <Directory "/phpmoadmin/data">
+      Options Indexes FollowSymLinks MultiViews
+      AllowOverride All
+      Order allow,deny
+      Allow from all
+    </Directory>
+
+    SSLEngine on
+    SSLCertificateFile /phpmoadmin/ssl/certs/phpmoadmin.crt
+    SSLCertificateKeyFile /phpmoadmin/ssl/private/phpmoadmin.key
+  </VirtualHost>
+</IfModule>
