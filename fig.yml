@@ -1,5 +1,5 @@
 phpmoadmin:
-  image: simpledrupalcloud/phpmoadmin:latest
+  image: simpledrupalcloud/phpmoadmin:dev
   hostname: phpmoadmin
   ports:
     - "80:80"
@@ -9,7 +9,7 @@ phpmoadmin:
   environment:
     - SERVER_NAME=localhost
 phpmoadmindata:
-  image: simpledrupalcloud/data:latest
+  image: simpledrupalcloud/data:dev
   hostname: phpmoadmindata
   volumes:
     - /phpmoadmin/ssl/certs

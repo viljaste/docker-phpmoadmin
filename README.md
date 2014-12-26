@@ -11,7 +11,7 @@ Using the `docker` command:
       -h "${CONTAINER}" \
       -v /phpmoadmin/ssl/certs \
       -v /phpmoadmin/ssl/private \
-      simpledrupalcloud/data:latest
+      simpledrupalcloud/data:dev
 
     CONTAINER="phpmoadmin" && sudo docker run \
       --name "${CONTAINER}" \
@@ -21,13 +21,14 @@ Using the `docker` command:
       --volumes-from phpmoadmindata \
       -e SERVER_NAME="localhost" \
       -d \
-      simpledrupalcloud/phpmoadmin:latest
+      simpledrupalcloud/phpmoadmin:dev
 
 Using the `fig` command
 
     TMP="$(mktemp -d)" \
       && git clone http://git.simpledrupalcloud.com/simpledrupalcloud/docker-phpmoadmin.git "${TMP}" \
       && cd "${TMP}" \
+      && git checkout dev \
       && sudo fig up
 
 ## Build the image
@@ -35,7 +36,8 @@ Using the `fig` command
     TMP="$(mktemp -d)" \
       && git clone http://git.simpledrupalcloud.com/simpledrupalcloud/docker-phpmoadmin.git "${TMP}" \
       && cd "${TMP}" \
-      && sudo docker build -t simpledrupalcloud/phpmoadmin:latest . \
+      && git checkout dev \
+      && sudo docker build -t simpledrupalcloud/phpmoadmin:dev . \
       && cd -
 
 ## Back up phpMoAdmin data
@@ -44,7 +46,7 @@ Using the `fig` command
       --rm \
       --volumes-from phpmoadmindata \
       -v $(pwd):/backup \
-      simpledrupalcloud/data:latest tar czvf /backup/phpmoadmindata.tar.gz /phpmoadmin/ssl/certs /phpmoadmin/ssl/private
+      simpledrupalcloud/data:dev tar czvf /backup/phpmoadmindata.tar.gz /phpmoadmin/ssl/certs /phpmoadmin/ssl/private
 
 ## Restore phpMoAdmin data from a backup
 
@@ -52,7 +54,7 @@ Using the `fig` command
       --rm \
       --volumes-from phpmoadmindata \
       -v $(pwd):/backup \
-      simpledrupalcloud/data:latest tar xzvf /backup/phpmoadmindata.tar.gz
+      simpledrupalcloud/data:dev tar xzvf /backup/phpmoadmindata.tar.gz
 
 ## License
 
