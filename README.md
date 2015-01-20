@@ -46,7 +46,7 @@ Using the `fig` command
       --rm \
       --volumes-from phpmoadmindata \
       -v $(pwd):/backup \
-      simpledrupalcloud/data:dev tar czvf /backup/phpmoadmindata.tar.gz /phpmoadmin/ssl/certs /phpmoadmin/ssl/private
+      simpledrupalcloud/base:dev tar czvf /backup/phpmoadmindata.tar.gz /phpmoadmin/ssl/certs /phpmoadmin/ssl/private
 
 ## Restore phpMoAdmin data from a backup
 
@@ -54,7 +54,7 @@ Using the `fig` command
       --rm \
       --volumes-from phpmoadmindata \
       -v $(pwd):/backup \
-      simpledrupalcloud/data:dev tar xzvf /backup/phpmoadmindata.tar.gz
+      simpledrupalcloud/base:dev tar xzvf /backup/phpmoadmindata.tar.gz
 
 ## License
 
