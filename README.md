@@ -9,8 +9,7 @@ Using the `docker` command:
     CONTAINER="phpmoadmindata" && sudo docker run \
       --name "${CONTAINER}" \
       -h "${CONTAINER}" \
-      -v /phpmoadmin/ssl/certs \
-      -v /phpmoadmin/ssl/private \
+      -v /phpmoadmin \
       simpledrupalcloud/data:latest
 
     CONTAINER="phpmoadmin" && sudo docker run \
@@ -44,7 +43,7 @@ Using the `fig` command
       --rm \
       --volumes-from phpmoadmindata \
       -v $(pwd):/backup \
-      simpledrupalcloud/base:latest tar czvf /backup/phpmoadmindata.tar.gz /phpmoadmin/ssl/certs /phpmoadmin/ssl/private
+      simpledrupalcloud/base:latest tar czvf /backup/phpmoadmindata.tar.gz /phpmoadmin
 
 ## Restore phpMoAdmin data from a backup
 

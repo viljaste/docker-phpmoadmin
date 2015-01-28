@@ -12,8 +12,7 @@ RUN apt-get update
 RUN /src/build.sh
 RUN /src/clean.sh
 
-VOLUME ["/phpmoadmin/ssl/certs"]
-VOLUME ["/phpmoadmin/ssl/private"]
+VOLUME ["/phpmoadmin"]
 
 EXPOSE 80
 EXPOSE 443

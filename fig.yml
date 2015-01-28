@@ -12,5 +12,4 @@ phpmoadmindata:
   image: simpledrupalcloud/data:latest
   hostname: phpmoadmindata
   volumes:
-    - /phpmoadmin/ssl/certs
-    - /phpmoadmin/ssl/private
+    - /phpmoadmin
