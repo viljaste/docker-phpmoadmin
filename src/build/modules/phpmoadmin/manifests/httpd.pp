@@ -2,19 +2,15 @@ class phpmoadmin::httpd {
   require phpmoadmin::httpd::packages
   require phpmoadmin::httpd::supervisor
 
-  exec { 'mkdir -p /phpmoadmin/data':
-    path => ['/bin']
-  }
-
-  exec { 'usermod -d /phpmoadmin/data www-data':
-    path => ['/usr/sbin']
-  }
-
   exec { '/bin/bash -c "a2enmod actions"': }
   exec { '/bin/bash -c "a2enmod fastcgi"': }
   exec { '/bin/bash -c "a2enmod vhost_alias"': }
   exec { '/bin/bash -c "a2enmod rewrite"': }
   exec { '/bin/bash -c "a2enmod ssl"': }
+
+  file { '/var/www/index.html':
+    ensure => absent
+  }
 
   file { '/etc/apache2/sites-enabled/000-default':
     ensure => absent

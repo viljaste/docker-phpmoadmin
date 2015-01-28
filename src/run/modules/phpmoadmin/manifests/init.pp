@@ -3,7 +3,7 @@ class phpmoadmin {
     require phpmoadmin::httpd::ssl
   }
 
-  file { '/phpmoadmin/data/index.php':
+  file { '/var/www/index.php':
     ensure  => present,
     content => template('phpmoadmin/moadmin.php.erb')
   }
