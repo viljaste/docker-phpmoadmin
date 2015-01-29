@@ -1,4 +1,4 @@
-class phpmoadmin::phpmoadmin::ssl {
+class phpmoadmin::httpd::ssl {
   exec { 'mkdir -p /phpmoadmin/ssl':
     path => ['/bin']
   }
